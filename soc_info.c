@@ -308,6 +308,20 @@ soc_info_t soc_info_table[] = {
 		.needs_smc_workaround_if_zero_word_at_addr = 0x100004,
 		.watchdog     = &wd_h6_compat,
 	},{
+		.soc_id       = 0x1719, /* Allwinner A63 */
+		.name         = "A63",
+		.spl_addr     = 0x20000,
+		.scratch_addr = 0x21000,
+		.thunk_addr   = 0x42200, .thunk_size = 0x200,
+		.swap_buffers = h6_sram_swap_buffers,
+		.sram_size    = 144 * 1024,
+		.sid_base     = 0x03006000,
+		.sid_offset   = 0x200,
+		.rvbar_reg    = 0x09010040,
+		/* Check L.NOP in the OpenRISC reset vector */
+		.needs_smc_workaround_if_zero_word_at_addr = 0x100004,
+		.watchdog     = &wd_h6_compat,
+	},{
 		.soc_id       = 0x1817, /* Allwinner V831 */
 		.name         = "V831",
 		.spl_addr     = 0x20000,
